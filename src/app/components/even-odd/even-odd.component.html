@@ -1,0 +1,51 @@
+<div>
+  <div class="inline">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Welcome: please enter a number</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <div>
+            <mat-card-subtitle>With Pipe Pure</mat-card-subtitle>
+            <mat-form-field>
+              <label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Nombre"
+                  title="Nombre à saisir"
+                  name="evenn_odd"
+                  [min]="0"
+                  [step]="1"
+                  [(ngModel)]="EvenOddImputPipe"
+                />
+              </label>
+            </mat-form-field>
+            <span [ngClass]="(EvenOddImputPipe |evenOddPure) === 'Pair' ? 'font-result green' : 'font-result red'"> {{EvenOddImputPipe | evenOddPure}} </span>
+          </div>
+          <div>
+            <mat-card-subtitle>With micro server Python</mat-card-subtitle>
+            <mat-form-field>
+              <label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Nombre"
+                  title="Nombre à saisir"
+                  name="evenn_odd"
+                  [min]="0"
+                  [step]="1"
+                  [(ngModel)]="EvenOddImputServer"
+                  (ngModelChange)="check_value()"
+                />
+              </label>
+            </mat-form-field>
+            <span [ngClass]="EvenOddRes === 'Pair' ? 'font-result green' : 'font-result red'"> {{EvenOddRes}}</span>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
